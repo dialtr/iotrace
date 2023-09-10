@@ -22,7 +22,7 @@ iotrace_library_shutdown() {
 
 // Replacement lseek.
 off_t lseek(int fd, off_t offset, int whence) {
-  cerr << "fd: " << fd << ", offset: " << offset << ", whence: " << whence;
+  cerr << "iostrace: fd: " << fd << ", offset: " << offset << ", whence: " << whence;
   const int status = (*g_libc_lseek)(fd, offset, whence);
   cerr << " | returned: " << status << endl;
   return status;

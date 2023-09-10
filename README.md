@@ -25,4 +25,14 @@ The implementation of **lseek** is simple: it just logs the parameters and
 the return value, but otherwise forwards the call to the real seek
 function.  
 
+## Using
 
+To use this while running **some_program**, just set the LD_PRELOAD accordingly:
+
+```bash
+# Assumes libiostrace.so is in the current directory.
+LD_PRELOAD="./libiotrace.so" some_program
+```
+
+Assuming **some_program** does some kind of lseek operation, you should
+see extra logging to standard error indicating what seeks were done.
